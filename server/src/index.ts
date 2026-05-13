@@ -8,7 +8,7 @@ import evaluateRouter from './routes/evaluate'
 const app = express()
 const PORT = Number(process.env.PORT ?? 3001)
 
-app.use(cors({ origin: 'http://localhost:3000' }))
+app.use(cors({ origin: process.env.CORS_ORIGIN }))
 app.use(express.json({ limit: '4mb' }))
 
 app.use('/api/auth', authRouter)
