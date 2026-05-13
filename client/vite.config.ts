@@ -7,10 +7,10 @@ export default defineConfig({
   preview: {
     allowedHosts: true
   },
-  // server: {
-  //   port: 3000,
-  //   proxy: {
-  //     '/api': 'http://localhost:3001',
-  //   },
-  // },
+  server: {
+    port: 3000,
+    proxy: {
+      '/api': 'http://localhost:3001',
+    },
+  },
 })
