@@ -1,7 +1,9 @@
 import axios from 'axios'
 import { useAppStore } from '../store/useAppStore'
 
-export const api = axios.create({ baseURL: '/api' })
+export const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL ?? '/api',
+})
 
 api.interceptors.request.use((config) => {
   const token = useAppStore.getState().token
