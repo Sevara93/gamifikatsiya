@@ -5,11 +5,11 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   preview: {
-    allowedHosts: [".railway.app"]
+    allowedHosts: ["client-production-f9de.up.railway.app"]
   },
   server: {
     port: 3000,
-    allowedHosts: [".railway.app"],
+    allowedHosts: ["client-production-f9de.up.railway.app"],
     proxy: {
       '/api': 'http://localhost:3001',
     },
