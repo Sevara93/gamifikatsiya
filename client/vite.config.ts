@@ -5,15 +5,12 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    host: '0.0.0.0',
-    port: Number(process.env.PORT) || 5173, // Railway использует динамический PORT
-    strictPort: false,
-    allowedHosts: ['.railway.app'] // Разрешить все поддомены railway.app
+    host: true, // Упрощённый вариант вместо '0.0.0.0'
+    port: Number(process.env.PORT) || 5173,
   },
   preview: {
-    host: '0.0.0.0',
+    host: true,
     port: Number(process.env.PORT) || 4173,
-    strictPort: false,
-    allowedHosts: ['.railway.app']
+    strictPort: false
   }
 })
