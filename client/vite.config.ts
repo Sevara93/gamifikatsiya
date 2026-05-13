@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  preview: {allowedHosts: [".up.railway.app"]},
+  preview: { allowedHosts: true },
   server: {
     port: 3000,
     proxy: {
