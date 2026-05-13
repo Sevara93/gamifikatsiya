@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 const PALETTE = [
   '#EF4444', '#F97316', '#EAB308', '#22C55E',
@@ -124,7 +124,7 @@ function ButterflyScene({ f, tap }: { f: Record<string, string>; tap: (id: strin
 interface PicConfig {
   name: string
   regionIds: string[]
-  Scene: (props: { f: Record<string, string>; tap: (id: string) => void }) => JSX.Element
+  Scene: (props: { f: Record<string, string>; tap: (id: string) => void }) => React.ReactElement
 }
 
 const PIC: Record<string, PicConfig> = {

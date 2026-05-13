@@ -95,7 +95,7 @@ export default function Week1Game({ groupLevel, onComplete }: { groupLevel: stri
     const part = build.parts.find(p => p.id === dragging)
     if (part && droppedSlot !== null) {
       if (droppedSlot === part.slot && !placed[droppedSlot]) {
-        setPlaced(prev => ({ ...prev, [droppedSlot]: part }))
+        setPlaced(prev => ({ ...prev, [droppedSlot!]: part }))
       } else {
         setErrors(e => e + 1)
         setWrong(dragging)
