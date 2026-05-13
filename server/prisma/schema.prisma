@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum GroupLevel {
+  KICHIK
+  ORTA
+  KATTA
+  TAYYORLOV
+}
+
+enum Lab {
+  ECO_LAB
+  MIND_LAB
+  ART_LAB
+  TECH_LAB
+  LIFE_LAB
+}
+
+model Group {
+  id       String     @id @default(cuid())
+  name     String
+  level    GroupLevel
+  children Child[]
+
+  @@unique([name, level])
+}
+
+model Child {
+  id        String     @id @default(cuid())
+  fullName  String
+  groupId   String
+  group     Group      @relation(fields: [groupId], references: [id])
+  createdAt DateTime   @default(now())
+  progress  Progress[]
+
+  @@unique([fullName, groupId])
+}
+
+model Progress {
+  id          String    @id @default(cuid())
+  childId     String
+  child       Child     @relation(fields: [childId], references: [id], onDelete: Cascade)
+  lab         Lab
+  week        Int
+  isCompleted Boolean   @default(false)
+  score       Int       @default(0)
+  completedAt DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@unique([childId, lab, week])
+}

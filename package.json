@@ -1,0 +1,11 @@
+{
+  "name": "kinderlab",
+  "private": true,
+  "scripts": {
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "db:migrate": "cd server && npx prisma migrate dev",
+    "db:studio": "cd server && npx prisma studio",
+    "db:generate": "cd server && npx prisma generate"
+  }
+}
