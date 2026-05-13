@@ -4,7 +4,11 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  preview: { allowedHosts: true },
+  preview: {
+    allowedHosts: process.env.RAILWAY_PUBLIC_DOMAIN
+      ? [process.env.RAILWAY_PUBLIC_DOMAIN]
+      : undefined,
+  },
   server: {
     port: 3000,
     proxy: {
