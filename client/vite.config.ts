@@ -5,12 +5,10 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   preview: {
-    // This allows the specific Railway URL
-    allowedHosts: ['client-production-f9de.up.railway.app'],
-    // Alternatively, to allow all hosts (less secure but works for debugging):
-    // allowedHosts: true, 
-    port: 4173,
-    host: true // This exposes the project on the network
+    // This allows any railway URL and the specific host you mentioned
+    allowedHosts: [".up.railway.app", "client-production-f9de.up.railway.app"],
+    host: true, // Crucial for Railway to route traffic to the container
+    port: 4173  // Default Vite preview port
   },
   server: {
     port: 3000,
