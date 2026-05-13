@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "tsc",
-    "start": "npx prisma migrate deploy && npx ts-node-dev --transpile-only prisma/seed.ts && node dist/index.js"
+    "start": "npx prisma db push --accept-data-loss && npx ts-node-dev --transpile-only prisma/seed.ts && node dist/index.js"
   },
   "keywords": [],
   "author": "",
